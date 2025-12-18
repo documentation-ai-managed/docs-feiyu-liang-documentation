@@ -1,0 +1,121 @@
+---
+title: Quickstart Guide
+description: Step-by-step instructions to set up your first documentation space and start managing projects quickly.
+---
+
+## Overview
+
+Get started with Feiyu Liang Documentation in minutes. Follow these steps to create an account, set up your space, build your first project, and navigate the dashboard. This guide uses the web interface for simplicity.
+
+<Callout kind="tip">
+  You need a modern browser like Chrome or Firefox. No downloads required for basic setup.
+</Callout>
+
+## Prerequisites
+
+Ensure you have an email address ready for account creation. Feiyu Liang Documentation supports single sign-on via Google or GitHub for faster onboarding.
+
+<Tabs>
+  <Tab title="Email Signup" icon="mail">
+    Prepare your business email. Avoid personal accounts for team projects.
+  </Tab>
+  <Tab title="Google SSO" icon="apple">
+    Use your Google Workspace account for seamless team integration.
+  </Tab>
+  <Tab title="GitHub" icon="github">
+    Link your GitHub account to import repositories directly.
+  </Tab>
+</Tabs>
+
+## Step-by-Step Setup
+
+Follow these sequential steps to launch your first documentation space.
+
+<Steps>
+  <Step title="Create Account" icon="user-plus">
+    Visit `https://feiyuliang.com` and click **Sign Up**.
+
+    Choose your signup method and complete the verification.
+
+    ```bash
+    # Example: If using CLI for advanced setup
+    npx create-feiyu-docs my-space
+    ```
+  </Step>
+
+  <Step title="Initial Setup" icon="settings">
+    After login, select **New Documentation Space**.
+
+    Enter a name like `My Project Docs` and choose a template (e.g., API Reference).
+
+    Configure your brand color `#3B82F6` in the settings panel.
+  </Step>
+
+  <Step title="Create First Project" icon="plus">
+    In the dashboard, click **New Project**.
+
+    Add details:
+
+    <CodeGroup tabs="JSON,YAML">
+    ```json
+    {
+      "name": "My API Docs",
+      "description": "Documentation for REST API endpoints",
+      "version": "v1.0.0"
+    }
+    ```
+    ```yaml
+    name: My API Docs
+    description: Documentation for REST API endpoints
+    version: v1.0.0
+    ```
+    </CodeGroup>
+  </Step>
+
+  <Step title="Publish and Share" icon="globe">
+    Click **Publish** to generate your live site.
+
+    Share the URL: `https://my-space.feiyuliang.com`.
+  </Step>
+</Steps>
+
+## Basic Navigation
+
+Master the dashboard quickly with these key sections.
+
+<Columns cols={3}>
+  <Card title="Dashboard" icon="layout" href="/dashboard">
+    Overview of all spaces and projects. Monitor usage and recent edits.
+  </Card>
+  <Card title="Projects" icon="folder" href="/projects">
+    Manage multiple documentation projects. Import from GitHub.
+  </Card>
+  <Card title="Settings" icon="settings" href="/settings">
+    Customize themes, integrations, and team access.
+  </Card>
+</Columns>
+
+| Section       | Icon Example | Purpose                          |
+|---------------|--------------|----------------------------------|
+| Dashboard     | layout      | Quick stats and recent activity |
+| Editor        | edit-3      | Write and preview MDX pages     |
+| Analytics     | bar-chart   | View visitor metrics            |
+
+## Next Steps
+
+Explore advanced features once setup completes.
+
+<ExpandableGroup>
+  <Expandable title="Troubleshooting Common Issues" default-open="false">
+    - **Login fails?** Clear browser cache and try incognito mode.
+    - **Publish errors?** Check `YOUR_API_KEY` environment variable.
+    - Contact support at `support@feiyuliang.com`.
+  </Expandable>
+  <Expandable title="Integrate with GitHub">
+    Connect your repo for automatic syncs. Use webhooks for CI/CD.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="success">
+  Congratulations! Your documentation space is live. Start adding pages now.
+</Callout>

@@ -1,0 +1,154 @@
+---
+title: Changelog
+description: Version history and updates for Feiyu Liang Documentation, highlighting new features and improvements.
+---
+
+## Recent Updates
+
+Feiyu Liang Documentation tracks all changes in a structured changelog. You access the latest features and fixes through these release notes. Stay updated by subscribing to notifications or checking this page regularly.
+
+<Callout kind="info">
+  Enable notifications in your browser to get alerts for new releases.
+</Callout>
+
+## Latest Releases
+
+<Columns cols={3}>
+  <Card title="v1.2.0" icon="zap" href="#v120">
+    Enhanced search and performance boosts.
+  </Card>
+  <Card title="v1.1.0" icon="settings" href="#v110">
+    Improved editing tools and collaboration.
+  </Card>
+  <Card title="v1.0.0" icon="rocket" href="#v100">
+    Initial stable release with core features.
+  </Card>
+</Columns>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added advanced full-text search across all documentation pages
+- Introduced real-time preview for markdown editing
+
+## Improvements
+
+- Optimized page load times by `>30%`
+- Enhanced mobile responsiveness for better viewing
+
+## Bug Fixes
+
+- Fixed sidebar navigation collapse on resize
+- Resolved image upload failures in certain browsers
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Multi-language support for documentation content
+- Integrated version comparison tool
+
+## Bug Fixes
+
+- Corrected table rendering issues in MDX components
+- Patched authentication token refresh logic
+
+## Improvements
+
+- Streamlined sidebar with collapsible sections
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core documentation editor with MDX support
+- Customizable themes and branding options
+- API for programmatic document management
+
+## Breaking Changes
+
+- Updated configuration format to use JSON schema validation
+
+</Update>
+
+## Upgrading Your Instance
+
+Follow these steps to upgrade to the latest version.
+
+<Steps>
+  <Step title="Backup Data" icon="database">
+    Export your documentation using the built-in tool:
+
+    ```bash
+    feiyu-docs export --output ./backup
+    ```
+  </Step>
+  <Step title="Update Package" icon="download">
+    Install the new version:
+
+    <Tabs>
+      <Tab title="npm" icon="package">
+        ```bash
+        npm install feiyu-docs@latest
+        ```
+      </Tab>
+      <Tab title="yarn" icon="package">
+        ```bash
+        yarn add feiyu-docs@latest
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Run Migrations" icon="settings">
+    Apply database changes:
+
+    ```bash
+    feiyu-docs migrate
+    ```
+  </Step>
+  <Step title="Restart Server" icon="refresh-cw">
+    Restart your documentation server.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Example: Embed documentation widget
+  import { FeiyuDocsWidget } from 'feiyu-docs';
+
+  const widget = new FeiyuDocsWidget({
+    apiKey: 'YOUR_API_KEY',
+    theme: 'blue' // Matches brand color #3B82F6
+  });
+  widget.render('#docs-container');
+  ```
+  ```python
+  # Example: Python client integration
+  from feiyu_docs import Client
+
+  client = Client(api_key='YOUR_API_KEY')
+  docs = client.get_docs(space_id='your-space-id')
+  print(docs.title)
+  ```
+</CodeGroup>
+
+## Upcoming Features
+
+<Expandable title="What's Coming Next" default-open="false">
+
+- AI-powered content suggestions
+- Advanced analytics dashboard
+- GitHub integration for version control
+
+Check back soon for beta access instructions.
+
+</Expandable>
+
+<Callout kind="tip">
+  Report issues or suggest features via the feedback form in your dashboard.
+</Callout>

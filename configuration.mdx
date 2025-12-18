@@ -1,0 +1,149 @@
+---
+title: Configuration Options
+description: How to customize your documentation space, including themes, permissions, and integrations.
+---
+
+## Overview
+
+Customize your Feiyu Liang Documentation space to match your brand and workflow. Configure themes with custom colors like `#3B82F6`, manage user access levels, set up integrations with tools such as GitHub and Slack, and handle data exports or imports for backups and migrations.
+
+<Columns cols={3}>
+  <Card title="Themes" icon="palette" href="#themes">
+    Apply custom colors and fonts.
+  </Card>
+  <Card title="Permissions" icon="shield" href="#permissions">
+    Control who edits and views docs.
+  </Card>
+  <Card title="Integrations" icon="plug" href="#integrations">
+    Connect to external services.
+  </Card>
+</Columns>
+
+## Theme and Branding
+
+Tailor the visual identity of your documentation site.
+
+### Custom Colors and Fonts
+
+Update your theme configuration file to set primary colors and typography.
+
+<Steps>
+  <Step title="Edit Config" icon="edit-3">
+    Open `theme.json` in your project root.
+  </Step>
+  <Step title="Set Brand Color" icon="palette">
+    Add your brand color:
+
+````json
+{
+  "primaryColor": "#3B82F6",
+  "secondaryColor": "#1E40AF"
+}
+````
+  </Step>
+  <Step title="Apply Changes" icon="save">
+    Save and redeploy. Changes appear instantly.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use hex codes for precise color matching. Test with light and dark modes.
+</Callout>
+
+## User Permissions
+
+Define access levels to protect your content.
+
+### Permission Levels
+
+| Role       | View | Edit | Admin |
+|------------|------|------|-------|
+| Viewer     | ✅   | ❌   | ❌    |
+| Editor     | ✅   | ✅   | ❌    |
+| Admin      | ✅   | ✅   | ✅    |
+
+Set permissions via the dashboard or config.
+
+<Tabs>
+  <Tab title="Dashboard" icon="monitor">
+    Navigate to Settings > Users. Assign roles by email.
+  </Tab>
+  <Tab title="Config File" icon="file">
+    Define in `permissions.json`:
+
+````json
+{
+  "users": [
+    {
+      "email": "user@example.com",
+      "role": "editor"
+    }
+  ]
+}
+````
+  </Tab>
+</Tabs>
+
+<Callout kind="alert">
+  Revoke admin access carefully to avoid lockouts.
+</Callout>
+
+## Integrations
+
+Connect your docs to external services for notifications and syncing.
+
+### Popular Integrations
+
+Use environment variables for secure setup.
+
+<CodeGroup tabs="GitHub,Slack">
+  ```bash
+  GITHUB_TOKEN=your-github-token-here
+  REPO_OWNER=your-org
+  REPO_NAME=your-docs-repo
+  ```
+  ```bash
+  SLACK_WEBHOOK_URL=https://hooks.slack.com/services/your/webhook/here
+  CHANNEL_NAME=docs-updates
+  ```
+</CodeGroup>
+
+<Expandable title="Advanced GitHub Sync" default-open="false">
+  Enable auto-sync on commits:
+
+  ```yaml
+  integrations:
+    github:
+      enabled: true
+      branch: main
+      webhookSecret: YOUR_WEBHOOK_SECRET
+  ```
+</Expandable>
+
+## Export and Import
+
+Backup or migrate your documentation.
+
+### Export Steps
+
+1. Go to Settings > Export.
+2. Select format: MDX or ZIP.
+3. Download the archive.
+
+### Import Process
+
+<Steps>
+  <Step title="Prepare Files" icon="upload">
+    Zip your MDX files.
+  </Step>
+  <Step title="Upload" icon="cloud-upload">
+    Use the Import tool in Settings.
+  </Step>
+  <Step title="Validate" icon="check-circle">
+    Review for errors post-import.
+  </Step>
+</Steps>
+
+<Callout kind="success">
+  Exports include frontmatter and assets for complete portability.
+</Callout>
